@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
+    "fastmcp>=2.14.4",
     "llama-index>=0.14.12",
     "llama-index-embeddings-huggingface>=0.6.1",
     "llama-index-embeddings-ollama>=0.8.6",
@@ -13,7 +14,8 @@ dependencies = [
     "llama-index-vector-stores-milvus>=0.9.6",
     "pymilvus[milvus-lite]>=2.6.6",
     "pymupdf>=1.26.7",
-    "python-dotenv"
+    "python-dotenv",
+    "requests>=2.32.5",
 ]
 
 
