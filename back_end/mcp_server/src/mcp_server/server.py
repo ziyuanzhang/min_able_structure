@@ -34,7 +34,7 @@ def ragflow_search(query: str, top_k: int = 5) -> str:
         # 1. 获取所有知识库列表 (SDK 方式)
         # -------------------------------------------------------------
         try:
-            datasets = rag.list_datasets(id=RAGFLOW_KNOWLEDGE_BASE_ID,page=1, page_size=100)
+            datasets = rag.list_datasets(id=get_env.RAGFLOW_KNOWLEDGE_BASE_ID,page=1, page_size=100)
         except Exception as e:
             return f"Error listing datasets: {str(e)}"
 
@@ -72,13 +72,13 @@ def ragflow_search(query: str, top_k: int = 5) -> str:
         # 3. 执行聚合检索 (Requests 方式 - 稳定方案)
         # -------------------------------------------------------------
         # 构造 URL
-        base_url = RAGFLOW_URL.rstrip('/')
+        base_url = get_env.RAGFLOW_URL.rstrip('/')
         if '/api/v1' not in base_url:
             base_url += '/api/v1'
         retrieval_url = f"{base_url}/retrieval"
 
         headers = {
-            "Authorization": f"Bearer {RAGFLOW_API_KEY}",
+            "Authorization": f"Bearer {get_env.RAGFLOW_API_KEY}",
             "Content-Type": "application/json"
         }
 
