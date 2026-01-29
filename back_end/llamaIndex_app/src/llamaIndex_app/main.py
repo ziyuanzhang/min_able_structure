@@ -1,4 +1,4 @@
-from get_env import setting
+from .get_env import setting
 def main():
     print(setting.METAPHOR_API_KEY)
 

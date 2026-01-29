@@ -27,3 +27,8 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+
+[tool.mypy]
+mypy_path = ["src"]          # ← 关键！告诉 MyPy 源码在 src/
+# strict = true                # 可选：启用严格模式
